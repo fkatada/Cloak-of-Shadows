@@ -37,14 +37,19 @@ while(cap.isOpened()):
     # upper = np.array([10,255,255])
     
     # Defining lower range for blue color detection.
-    lower=np.array([100,150,0],np.uint8)
-    upper=np.array([140,255,255],np.uint8)
+    lower=np.array([90,120,0],np.uint8)
+    upper=np.array([120,255,255],np.uint8)
     mask1 = cv2.inRange(hsv, lower, upper)
 
+    # Defining upper range for blue color detection.
+    lower=np.array([120,120,0],np.uint8)
+    upper=np.array([145,255,255],np.uint8)
+    mask2 = cv2.inRange(hsv, lower, upper)
+
     # Defining upper range for red color detection
-    lower_red = np.array([170,120,70])
-    upper_red = np.array([180,255,255])
-    mask2 = cv2.inRange(hsv, lower_red, upper_red)
+    # lower_red = np.array([170,120,70])
+    # upper_red = np.array([180,255,255])
+    # mask2 = cv2.inRange(hsv, lower_red, upper_red)
     
     # Addition of the two masks to generate the final mask.
     mask = mask1 + mask2
